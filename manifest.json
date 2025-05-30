@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "Ozon Checkbox Helper",
+    "version": "1.0",
+    "description": "Автоматически проставляет галочки для заказов со штрихкодами в статусе awaiting_deliver.",
+    "permissions": [
+        "scripting",
+        "tabs"
+    ],
+    "host_permissions": [
+        "https://apimonster.ru/ozon/orders/*"
+    ],
+    "action": {
+        "default_title": "Проставить галочки",
+        "default_icon": {
+            "16": "icon.png",
+            "48": "icon.png",
+            "128": "icon.png"
+        }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    }
+}
