@@ -24,7 +24,9 @@ chrome.action.onClicked.addListener((tab) => {
                     const statusCell = row.querySelector("td:nth-child(4)");
                     const barcodeCell = row.querySelector("td:nth-child(6)");
                     const checkbox = row.querySelector("input.ozon_order_checkbox");
+
                     const hasBarcodeLink = barcodeCell?.querySelector("a");
+                    const wasRequested = barcodeCell?.innerText.includes("Был запрос");
 
                     if (
                         statusCell &&
@@ -32,7 +34,8 @@ chrome.action.onClicked.addListener((tab) => {
                         checkbox &&
                         !checkbox.disabled &&
                         statusCell.textContent.trim() === "awaiting_deliver" &&
-                        hasBarcodeLink
+                        hasBarcodeLink &&
+                        !wasRequested
                     ) {
                         if (!checkbox.checked) {
                             checkbox.click(); // Эмуляция клика
